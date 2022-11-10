@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+        
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            background-color: cadetblue;
+            width: auto;
+            height: auto;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+        .box1{
+            background-color: antiquewhite;
+            width: 305px;
+            height: auto;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .color{
+            
+            width: 100px;
+            height: 25px;
+            margin-bottom: 20px;
+        }
+
+        .box2{
+            background-color: rgb(219, 250, 215);
+            width: 305px;
+            height: auto;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            
+        }
+
+        .btn{
+           margin-bottom: 20px;
+        }
+
+        .box3{
+            background-color: rgb(177, 197, 176);
+            width: 305px;
+            height: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h2>tugas mandiri 11</h2>
+        <div class="box1" id="box1">
+            <h3>Event onChange()</h3>
+                <label for="color">Ubah Background</label>
+                <center>
+                    <input type="color" class="color" name="color" id="color">
+                </center>
+                <label for="color">Ubah Text</label>
+                <center><input type="color" class="color" name="" id="color1">
+                </center>
+        </div>
+
+        <div class="box2">
+            <button type="submit" id="btn1" class="btn">Mouse Enter</button>
+            <button type="submit" id="btn2" class="btn">Hover</button>
+            <button type="submit" id="btn3" class="btn">Mouse Out</button>
+        </div>
+
+        <div class="box3">
+            <h1 id="keydown"></h1>
+            <h1 id="pressed"></h1>
+            <h1 id="keyup"></h1>
+        </div>
+    </div>
+
+</body>
+
+    <script>
+        // event onChange()
+        
+        let bgCol = document.getElementById("color")
+        let texCol = document.getElementById("color1")
+        let box1 = document.getElementById("box1")
+
+        bgCol.addEventListener("change", (event) => {
+            box1.style.backgroundColor = bgCol.value
+        })
+
+        texCol.addEventListener("change", (event) => {
+            box1.style.color = texCol.value
+        })
+
+
+        // event onMouse() 
+        const btnEnter = document.getElementById("btn1");
+        const btnHover = document.getElementById("btn2");
+        const btnOut = document.getElementById("btn3");
+
+        btn1.addEventListener("mouseenter", function(event) {
+        event.target.innerText = "Mouse sudah masuk";
+        });
+
+        btn3.addEventListener("mouseout", function(event) {
+        event.target.innerText = "Mouse sudah keluar";
+        });
+
+        btn2.addEventListener("mouseover", function(event){
+        event.target.innerText = "Mouse sudah di atas elemen";
+        });
+
+
+        //event keyboard
+        const keydown = document.getElementById("keydown");
+        const pressed = document.getElementById("pressed");
+        const keyup = document.getElementById("keyup");
+
+        document.addEventListener("keydown", function (event) {
+        keydown.innerText = `menekan: ${event.key}`;
+        });
+    
+        document.addEventListener("keypress", function (event) {
+        pressed.innerText = `menahan: ${event.key}`;
+        });
+
+        document.addEventListener("keyup", function (event) {
+        keyup.innerText = `melepas: ${event.key}`;
+        });
+    </script>
+</html>
